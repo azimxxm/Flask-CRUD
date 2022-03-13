@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} All posts page {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1> This is an all news page </h1>
+
+    {% if artile|length > 0 %}
+    {% for post in artile %}
+    <div class="alert alert-info">
+    <h2> {{ post.title }} </h2>
+        <p> {{ post.intro }} </p>
+        <p><b>Date: {{ post.date.date() }}</b> </p>
+        <a href="/posts/{{ post.id }}" class="btn btn-warning"> Detail view </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p> No data found </p>
+    {% endif %}
+</div>
+
+{% endblock%}
